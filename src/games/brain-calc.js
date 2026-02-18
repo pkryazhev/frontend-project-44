@@ -37,7 +37,7 @@ const getCorrectAnswer = (number1, number2, sign) => {
 }
 
 const generateSign = () => {
-  const number = generateNumber(1, 3);
+  const number = generateNumber(0, 2);
   const signs = ['+', '-', '*'];
   return signs[number];
 }
