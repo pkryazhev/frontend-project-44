@@ -10,6 +10,7 @@
     <li>Актуальная версия node.js</li>
 </ul>
 <h2>Установка и запуск</h2>
+
 ```bash
 npm link
 brain-even
