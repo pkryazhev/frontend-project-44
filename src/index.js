@@ -1,6 +1,7 @@
 import readlineSync from 'readline-sync';
 
 export const generateNumber = (min = 1, max = 100) => {
+  // NOSONAR: non-secure random is acceptable here
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 

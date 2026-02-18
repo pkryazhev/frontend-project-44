@@ -37,6 +37,7 @@ const getCorrectAnswer = (number1, number2, sign) => {
 }
 
 const generateSign = () => {
+  // NOSONAR: non-secure random is acceptable here
   const number = Math.floor(Math.random() * 3) + 1;
   switch (number) {
     case 1:
