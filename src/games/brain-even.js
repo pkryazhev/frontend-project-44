@@ -6,12 +6,16 @@ const runBrainEven = () => {
   for (let i = 0; i < 3; i += 1) {
     const number = generateNumber();
     const answer = getAnswer(number);
-    const correctAnswer = number % 2 === 0 ? 'yes' : 'no';
+    const correctAnswer = isEven(number);
     if (!checkAnswer(answer, correctAnswer, name)) {
       return;
     }
   }
   printCongratulations(name);
+}
+
+const isEven = (number) => {
+  return number % 2 === 0 ? 'yes' : 'no';
 }
 
 export default runBrainEven;
