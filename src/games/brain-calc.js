@@ -38,14 +38,8 @@ const getCorrectAnswer = (number1, number2, sign) => {
 
 const generateSign = () => {
   const number = generateNumber(1, 3);
-  switch (number) {
-    case 1:
-      return '+';
-    case 2:
-      return '-';
-    case 3:
-      return '*';
-  }
+  const signs = ['+', '-', '*'];
+  return signs[number];
 }
 
 export default runBrainCalc;
