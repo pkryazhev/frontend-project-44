@@ -4,7 +4,7 @@ const runBrainProgression = () => {
   const name = getName();
   console.log('What number is missing in the progression?');
   for (let i = 0; i < 3; i += 1) {
-    const [question, correctAnswer] = generateResults();
+    const [question, correctAnswer] = generateRoundData();
     const answer = getAnswer(question);
     if (!checkAnswer(answer, correctAnswer, name)) {
       return;
@@ -13,7 +13,7 @@ const runBrainProgression = () => {
   printCongratulations(name);
 }
 
-const generateResults = () => {
+const generateRoundData = () => {
   const result = [];
   let correctAnswer = null;
   const length = generateNumber(5, 10);
