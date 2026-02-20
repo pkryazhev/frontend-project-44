@@ -1,20 +1,16 @@
-import { generateNumber, getName, checkAnswer, getAnswer, printCongratulations } from '../index.js'
+import { generateNumber, playGame } from '../index.js'
 
 const runBrainCalc = () => {
-  const name = getName()
-  console.log('What is the result of the expression?')
-  for (let i = 0; i < 3; i += 1) {
-    const number1 = generateNumber()
-    const number2 = generateNumber()
-    const sign = generateSign()
-    const question = `${number1} ${sign} ${number2}`
-    const answer = getAnswer(question)
-    const correctAnswer = getCorrectAnswer(number1, number2, sign)
-    if (!checkAnswer(answer, correctAnswer, name)) {
-      return
-    }
-  }
-  printCongratulations(name)
+  playGame('What is the result of the expression?', generateRoundData)
+}
+
+const generateRoundData = () => {
+  const number1 = generateNumber()
+  const number2 = generateNumber()
+  const sign = generateSign()
+  const question = `${number1} ${sign} ${number2}`
+  const correctAnswer = getCorrectAnswer(number1, number2, sign)
+  return [question, correctAnswer]
 }
 
 const getCorrectAnswer = (number1, number2, sign) => {

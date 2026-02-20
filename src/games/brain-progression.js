@@ -1,16 +1,7 @@
-import { generateNumber, getName, checkAnswer, getAnswer, printCongratulations } from '../index.js'
+import { generateNumber, playGame } from '../index.js'
 
 const runBrainProgression = () => {
-  const name = getName()
-  console.log('What number is missing in the progression?')
-  for (let i = 0; i < 3; i += 1) {
-    const [question, correctAnswer] = generateRoundData()
-    const answer = getAnswer(question)
-    if (!checkAnswer(answer, correctAnswer, name)) {
-      return
-    }
-  }
-  printCongratulations(name)
+  playGame('What number is missing in the progression?', generateRoundData)
 }
 
 const generateRoundData = () => {

@@ -1,17 +1,13 @@
-import { generateNumber, getName, checkAnswer, getAnswer, printCongratulations } from '../index.js'
+import { generateNumber, playGame } from '../index.js'
 
 const runBrainPrime = () => {
-  const name = getName()
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".')
-  for (let i = 0; i < 3; i += 1) {
-    const number = generateNumber()
-    const answer = getAnswer(number)
-    const correctAnswer = getCorrectAnswer(number)
-    if (!checkAnswer(answer, correctAnswer, name)) {
-      return
-    }
-  }
-  printCongratulations(name)
+  playGame('Answer "yes" if given number is prime. Otherwise answer "no".', generateRoundData)
+}
+
+const generateRoundData = () => {
+  const questionData = generateNumber()
+  const correctAnswer = getCorrectAnswer(questionData)
+  return [questionData, correctAnswer]
 }
 
 const getCorrectAnswer = (number) => {

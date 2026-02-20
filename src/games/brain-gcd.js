@@ -1,19 +1,15 @@
-import { generateNumber, getName, checkAnswer, getAnswer, printCongratulations } from '../index.js'
+import { generateNumber, playGame } from '../index.js'
 
 const runBrainGcd = () => {
-  const name = getName()
-  console.log('Find the greatest common divisor of given numbers.')
-  for (let i = 0; i < 3; i += 1) {
-    const number1 = generateNumber()
-    const number2 = generateNumber()
-    const question = `${number1} ${number2}`
-    const answer = getAnswer(question)
-    const correctAnswer = getCorrectAnswer(number1, number2)
-    if (!checkAnswer(answer, correctAnswer, name)) {
-      return
-    }
-  }
-  printCongratulations(name)
+  playGame('Find the greatest common divisor of given numbers.', generateRoundData)
+}
+
+const generateRoundData = () => {
+  const number1 = generateNumber()
+  const number2 = generateNumber()
+  const question = `${number1} ${number2}`
+  const correctAnswer = getCorrectAnswer(number1, number2)
+  return [question, correctAnswer]
 }
 
 const getCorrectAnswer = (number1, number2) => {
